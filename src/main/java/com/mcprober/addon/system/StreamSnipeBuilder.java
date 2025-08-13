@@ -1,9 +1,5 @@
 package com.mcprober.addon.system;
 
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-
-import javax.annotation.Nullable;
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
@@ -11,30 +7,22 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class ServerSearchBuilder {
+public class StreamSnipeBuilder {
     public static class SearchParams {
-        Boolean online, cracked;
-        String motd,maxOnline, currentlyOnline, port, version;
+        String viewerCount,language, mods, tags;
 
-        public SearchParams(String version, Boolean online, Boolean cracked, String motd, String maxOnline, String currentlyOnline, String port) {
-            this.version = version;
-            this.online = online;
-            this.cracked = cracked;
-            this.motd = motd;
-            this.maxOnline = maxOnline;
-            this.currentlyOnline = currentlyOnline;
-            this.port = port;
+        public SearchParams(String viewerCount, String language, String mods, String tags) {
+            this.viewerCount = viewerCount;
+            this.language = language;
+            this.mods = mods;
+            this.tags = tags;
         }
 
         public Map<String, Object> toMap() {
             Map<String, Object> map = new HashMap<>();
-            if (version != null) map.put("version", version);
-            if (online != null) map.put("online", online);
-            if (cracked != null) map.put("cracked", cracked);
-            if (motd != null && !motd.isEmpty()) map.put("motd", motd);
-            if (maxOnline != null && !maxOnline.isEmpty()) map.put("max_players", maxOnline);
-            if (currentlyOnline != null && !currentlyOnline.isEmpty()) map.put("online_players", currentlyOnline);
-            if (port != null) map.put("port", port);
+            if (viewerCount != null) map.put("viewerCount", viewerCount);
+            if (language != null) map.put("language", language);
+            if (tags != null) map.put("tags", tags);
             return map;
         }
     }

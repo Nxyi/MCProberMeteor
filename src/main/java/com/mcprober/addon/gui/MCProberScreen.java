@@ -79,6 +79,7 @@ public class MCProberScreen extends WindowScreen {
         WButton recentServersButton = widgetList.add(this.theme.button("Recent Servers")).expandX().widget();
         WButton removeServersButton = widgetList.add(this.theme.button("Remove Servers")).expandX().widget();
         WButton tickedIdScreenButton = widgetList.add(this.theme.button("TicketID search")).expandX().widget();
+        WButton StreamSnipeScreenButton = widgetList.add(this.theme.button("StreamSnipe")).expandX().widget();
 
 
         newServersButton.action = () -> {
@@ -107,6 +108,10 @@ public class MCProberScreen extends WindowScreen {
 
         tickedIdScreenButton.action = () -> {
             this.client.setScreen(TicketIDScreen.instance(this.multiplayerScreen, this));
+        };
+
+        StreamSnipeScreenButton.action = () -> {
+            this.client.setScreen(StreamSnipeScreen.instance(this.multiplayerScreen, this));
         };
 
 //        findPlayersButton.action = () -> {
