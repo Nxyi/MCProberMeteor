@@ -1,4 +1,4 @@
-<h1 align="center">McsdcMeteor</h1>
+<h1 align="center">MCProber Meteor</h1>
 
 <div align="center">
 
