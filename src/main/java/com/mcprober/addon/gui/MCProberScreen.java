@@ -36,7 +36,6 @@ public class MCProberScreen extends WindowScreen {
 
         WTable accountList = add(theme.table()).expandX().widget();
         CompletableFuture.supplyAsync(() -> {
-            Main.LOG.info("ok");
 
             HttpResponse<String> response = Http.get(
                     Main.mainEndpoint + "stats"
@@ -49,7 +48,6 @@ public class MCProberScreen extends WindowScreen {
 
             return response.body();
         }).thenAccept(notice -> {
-            Main.LOG.info(notice);
             JsonObject object = JsonParser.parseString(notice).getAsJsonObject();
 
             MCProberSystem.get().total_servers = object.get("total_servers").getAsInt();

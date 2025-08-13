@@ -41,7 +41,6 @@ public class ServerInfoScreen extends WindowScreen {
             String string =
                 "?ip=%s&port=%s".formatted(this.ip.split(":")[0], this.ip.split(":")[1]);
 
-            Main.LOG.info(Main.mainEndpoint + "servers" + string);
 
             HttpResponse<String> response = Http.get(
                 Main.mainEndpoint + "servers" + string
@@ -60,7 +59,6 @@ public class ServerInfoScreen extends WindowScreen {
             }
 
             Main.mc.execute(() -> {
-                Main.LOG.info(response.substring(1, response.length() -1));
                 JsonObject jsonObject = JsonParser.parseString(response.substring(1, response.length() -1)).getAsJsonObject();
 
                 if (jsonObject.has("error")){

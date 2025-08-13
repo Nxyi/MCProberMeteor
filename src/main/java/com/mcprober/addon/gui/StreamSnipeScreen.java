@@ -111,7 +111,6 @@ public class StreamSnipeScreen extends WindowScreen {
                 StreamSnipeBuilder.Search searchString = new StreamSnipeBuilder.Search(flags);
 
                 String finalString = StreamSnipeBuilder.createHttpParams(searchString);
-                Main.LOG.info(String.format("%sstreamsnipe%s", Main.mainEndpoint, finalString));
 
                 HttpResponse<String> response = Http.get(
                         String.format("%sstreamsnipe%s", Main.mainEndpoint, finalString)
@@ -122,7 +121,6 @@ public class StreamSnipeScreen extends WindowScreen {
                     )
                     .sendStringResponse();
 
-                Main.LOG.info(response.body());
                 return response.body();
             }).thenAccept(response -> {
 

@@ -54,7 +54,6 @@ public class LoginScreen extends WindowScreen {
                 }
 
                 String response = Http.get(Main.mainEndpoint).header("X-API-KEY", tokenSetting.get()).sendString();
-                Main.LOG.info(response);
 
                 if (response == null || Objects.equals(JsonParser.parseString(response).getAsJsonObject().get("message").getAsString(), "Invalid API Key")){
                     add(theme.label("Invalid token."));

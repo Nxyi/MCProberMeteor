@@ -129,7 +129,6 @@ public class FindNewServersScreen extends WindowScreen {
                 ServerSearchBuilder.Search searchString = new ServerSearchBuilder.Search(flags);
 
                 String finalString = ServerSearchBuilder.createHttpParams(searchString);
-                Main.LOG.info(String.format("%sservers%s", Main.mainEndpoint, finalString));
 
                 HttpResponse<String> response = Http.get(
                         String.format("%sservers%s", Main.mainEndpoint, finalString)
@@ -140,7 +139,6 @@ public class FindNewServersScreen extends WindowScreen {
                     )
                     .sendStringResponse();
 
-                Main.LOG.info(response.body());
                 return response.body();
             }).thenAccept(response -> {
 

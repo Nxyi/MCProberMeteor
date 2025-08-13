@@ -84,10 +84,8 @@ public class FindPlayerScreen extends WindowScreen {
                 String toSearch = FindPlayerSearchBuilder.create(playerSetting.get());
                 String string = String.format("%swhereis?%s", Main.mainEndpoint, toSearch);
 
-                Main.LOG.info(string);
                 return Http.get(string).header("X-API-KEY", MCProberSystem.get().getToken()).sendStringResponse().body();
             }).thenAccept(response -> {
-                Main.LOG.info(response);
                 List<ServerStorage> extractedServers = extractServerInfo(response);
                 if (extractedServers.isEmpty() || response == null){
                     add(theme.label("No servers found."));
