@@ -1,0 +1,19 @@
+{
+  "required": true,
+  "package": "com.mcprober.addon.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "client": [
+    "AddressResolverMixin",
+    "ClientPlayNetworkHandlerMixin",
+    "GameMenuMixin",
+    "MultiplayerScreenAccessor",
+    "MultiplayerScreenMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "mixins": [
+    "ConnectScreenMixin",
+    "SystemsMixin"
+  ]
+}

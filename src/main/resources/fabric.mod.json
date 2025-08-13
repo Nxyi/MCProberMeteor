@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "id": "mcprober",
+  "version": "${version}",
+  "name": "MCProber",
+  "description": "MCProber server finder.",
+  "authors": [
+    "nxyi"
+  ],
+  "contact": {
+    "repo": ""
+  },
+  "icon": "assets/template/icon.png",
+  "environment": "client",
+  "entrypoints": {
+    "meteor": [
+      "com.mcprober.addon.Main"
+    ]
+  },
+  "mixins": [
+    "mcprober.mixins.json"
+  ],
+  "custom": {
+    "meteor-client:color": "225,25,25"
+  },
+  "depends": {
+    "java": ">=21",
+    "minecraft": ["${mc_version}"],
+    "meteor-client": "*"
+  }
+}
