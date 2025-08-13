@@ -43,28 +43,28 @@ public class StreamSnipeScreen extends WindowScreen {
     private final Setting<String> viewerCountSetting = sg.add(new StringSetting.Builder()
         .name("ViewerCount")
         .description("10-100, >=50, <20")
-        .defaultValue(">40")
+        .defaultValue("")
         .build()
     );
 
     private final Setting<String> languageSetting = sg.add(new StringSetting.Builder()
         .name("language")
         .description("empty for ignored")
-        .defaultValue("en")
+        .defaultValue("")
         .build()
     );
 
     private final Setting<String> modSetting = sg.add(new StringSetting.Builder()
         .name("Mods")
         .description("empty for ignored")
-        .defaultValue("vanilla")
+        .defaultValue("")
         .build()
     );
 
     private final Setting<String> tagsSetting = sg.add(new StringSetting.Builder()
         .name("Tags")
-        .description("comma separated")
-        .defaultValue("survival,hardcore")
+        .description("comma separated. eg. survival,hardcore")
+        .defaultValue("")
         .build()
     );
 
@@ -95,7 +95,7 @@ public class StreamSnipeScreen extends WindowScreen {
     public void initWidgets() {
         WContainer settingsContainer = add(theme.verticalList()).widget();
         settingsContainer.add(theme.settings(settings)).expandX();
-
+        settingsContainer.minWidth = 300;
         this.settingsContainer = settingsContainer;
 
         add(theme.button("search")).expandX().widget().action = () -> {
