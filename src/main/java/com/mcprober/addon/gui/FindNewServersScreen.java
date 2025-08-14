@@ -37,6 +37,13 @@ public class FindNewServersScreen extends WindowScreen {
     private boolean searching = false;
     List<ServerStorage> extractedServers;
 
+    private final Setting<String> portSetting = sg.add(new StringSetting.Builder()
+        .name("Port")
+        .description("empty for ignored port")
+        .defaultValue("")
+        .build()
+    );
+
     private final Setting<Flags> OnlineSetting = sg.add(new EnumSetting.Builder<Flags>()
         .name("Online")
         .description("")
@@ -51,9 +58,16 @@ public class FindNewServersScreen extends WindowScreen {
         .build()
     );
 
-    private final Setting<String> portSetting = sg.add(new StringSetting.Builder()
-        .name("Port")
-        .description("empty for ignored port")
+    private final Setting<Flags> secureChatSetting = sg.add(new EnumSetting.Builder<Flags>()
+        .name("SecureChat")
+        .description("Enforces SecureChat")
+        .defaultValue(Flags.ANY)
+        .build()
+    );
+
+    private final Setting<String> countrySetting = sg.add(new StringSetting.Builder()
+        .name("Country code")
+        .description("Empty for ignored country. eg (US, UK)")
         .defaultValue("")
         .build()
     );
@@ -125,7 +139,7 @@ public class FindNewServersScreen extends WindowScreen {
                 add(theme.label("Searching...")).expandX().widget();
 
 
-                ServerSearchBuilder.SearchParams flags = new ServerSearchBuilder.SearchParams(versionSetting.get(), OnlineSetting.get().bool, CrackedSetting.get().bool, motdSetting.get(), maxOnlinePlayersSetting.get(), onlinePlayersSetting.get(), portSetting.get());
+                ServerSearchBuilder.SearchParams flags = new ServerSearchBuilder.SearchParams(versionSetting.get(), OnlineSetting.get().bool, CrackedSetting.get().bool, motdSetting.get(), maxOnlinePlayersSetting.get(), onlinePlayersSetting.get(), portSetting.get(), secureChatSetting.get().bool, countrySetting.get());
                 ServerSearchBuilder.Search searchString = new ServerSearchBuilder.Search(flags);
 
                 String finalString = ServerSearchBuilder.createHttpParams(searchString);

@@ -20,7 +20,7 @@ public class StreamSnipeBuilder {
 
         public Map<String, Object> toMap() {
             Map<String, Object> map = new HashMap<>();
-            if (viewerCount != null) map.put("viewerCount", viewerCount);
+            if (viewerCount != null) map.put("viewer_count", viewerCount);
             if (language != null) map.put("language", language);
             if (tags != null) map.put("tags", tags);
             return map;

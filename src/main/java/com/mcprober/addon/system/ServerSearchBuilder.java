@@ -13,10 +13,10 @@ import java.util.Map;
 
 public class ServerSearchBuilder {
     public static class SearchParams {
-        Boolean online, cracked;
-        String motd,maxOnline, currentlyOnline, port, version;
+        Boolean online, cracked, secureChat;
+        String motd,maxOnline, currentlyOnline, port, version, countryCode;
 
-        public SearchParams(String version, Boolean online, Boolean cracked, String motd, String maxOnline, String currentlyOnline, String port) {
+        public SearchParams(String version, Boolean online, Boolean cracked, String motd, String maxOnline, String currentlyOnline, String port, Boolean secureChat, String countryCode) {
             this.version = version;
             this.online = online;
             this.cracked = cracked;
@@ -24,6 +24,8 @@ public class ServerSearchBuilder {
             this.maxOnline = maxOnline;
             this.currentlyOnline = currentlyOnline;
             this.port = port;
+            this.secureChat = secureChat;
+            this.countryCode = countryCode;
         }
 
         public Map<String, Object> toMap() {
@@ -35,6 +37,8 @@ public class ServerSearchBuilder {
             if (maxOnline != null && !maxOnline.isEmpty()) map.put("max_players", maxOnline);
             if (currentlyOnline != null && !currentlyOnline.isEmpty()) map.put("online_players", currentlyOnline);
             if (port != null) map.put("port", port);
+            if (secureChat != null) map.put("enforces_secure_chat", secureChat);
+            if (countryCode != null) map.put("country", countryCode);
             return map;
         }
     }
