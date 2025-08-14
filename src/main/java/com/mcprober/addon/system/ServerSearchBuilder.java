@@ -45,7 +45,6 @@ public class ServerSearchBuilder {
 
     public static class Search {
         SearchParams flags;
-
         public Search(SearchParams flags) {
             this.flags = flags;
         }
