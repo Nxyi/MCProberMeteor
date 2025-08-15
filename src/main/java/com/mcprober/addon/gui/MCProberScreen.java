@@ -94,7 +94,7 @@ public class MCProberScreen extends WindowScreen {
 
         removeServersButton.action = () -> {
             for (int i = 0; i < this.multiplayerScreen.getServerList().size(); i++) {
-                if (this.multiplayerScreen.getServerList().get(i).name.startsWith("Mcsdc")) {
+                if (this.multiplayerScreen.getServerList().get(i).name.startsWith("MCProber")) {
                     this.multiplayerScreen.getServerList().remove(this.multiplayerScreen.getServerList().get(i));
                     i--;
                 }
