@@ -50,6 +50,12 @@ public class MCProberScreen extends WindowScreen {
         }).thenAccept(notice -> {
             JsonObject object = JsonParser.parseString(notice).getAsJsonObject();
 
+            if (object.has("message")){
+                MCProberSystem.get().setToken("");
+                reload();
+                return;
+            }
+
             MCProberSystem.get().total_servers = object.get("total_servers").getAsInt();
             MCProberSystem.get().total_players = object.get("total_players").getAsInt();
             MCProberSystem.get().api_uptime = object.get("api_uptime").getAsString();
